@@ -1,0 +1,43 @@
+﻿<html>
+	<head>
+		<title>图书管理系统 - 首页</title>
+	<link type="text/css" rel="stylesheet" href="/static/css/common.css" />
+	<link type="text/css" rel="stylesheet" href="/static/css/templatemo_style.css" />
+	</head>
+
+        <body background="/static/image/eg_background.jpg">
+		<div id="templatemo_container">
+			<div id="templatemo_menu">
+    			<ul>
+                		<li><a href="/index/" >首页</a>
+                		<li><a href="/search/" >搜索图书</a>
+                		<li><a href="/book/">添加图书</a>
+                		<li><a href="/author/">添加作者</a>
+			</ul>
+			</div>
+		</div>
+		<div id="box" align="center">
+    			<img src="/static/image/templatemo_header_bg_blank.jpg"/>
+    			<span><h1>图书信息</h1></span>
+		</div>
+	<table id="customers" align="center">
+		<th>书名</th>
+		<th>出版社</th>
+		<th>价格</th>
+		<th>详情</th>
+		<th>操作</th>
+        	{% for book in books %}
+        		<tr>
+        		<td><a href="/detail/?q={{ book.ISBN }}" style="text-decoration:none">{{ book.Title }}</a></td>
+        		<td>{{ book.Publisher }}</td>
+        		<td>{{ book.Price }}</td>
+			<td><a href="/detail/?q={{ book.ISBN }}" style="text-decoration:none">查看书籍详情</a></td>
+			<td> <button name="change" value="change"><a href="/change/?q={{ book.ISBN }}">修改</a></button>
+			     <button name="delete" value="delete"><a href="/delete/?q={{ book.ISBN }}">删除</a></button>
+			</td>
+    			</tr>
+		{% endfor %}
+	</table>
+	</body>
+
+</html>

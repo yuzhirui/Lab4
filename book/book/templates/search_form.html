@@ -1,0 +1,36 @@
+﻿<html>
+	<head>
+		<title>图书管理系统 - 搜索图书</title>
+	<link type="text/css" rel="stylesheet" href="/static/css/templatemo_style.css" />
+	</head>
+
+                <body background="/static/image/eg_background.jpg">
+		<div id="templatemo_container">
+			<div id="templatemo_menu">
+    			<ul>
+                		<li><a href="/index/" >首页</a>
+                		<li><a href="/search/" >搜索图书</a>
+                		<li><a href="/book/">添加图书</a>
+                		<li><a href="/author/">添加作者</a>
+			</ul>
+			</div>
+		</div>
+		<div id="box" align="center">
+    			<img src="/static/image/templatemo_header_bg_blank.jpg"/>
+		</div>
+	<div align="center">
+	<p align="center">请输入作者关键字</p>
+	{% if errors %}
+	<ul>
+	{% for error in errors %}
+	<li>{{ error }}</li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+	<form action="/search/" method="get" align="center">
+	<input type="text" name="q">
+	<input type="submit" value="搜索">
+	</form>
+	</div>
+	</body>
+</html>

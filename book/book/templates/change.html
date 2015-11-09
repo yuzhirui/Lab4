@@ -1,0 +1,75 @@
+﻿<html>
+	<head>
+		<title>图书管理系统 - 修改图书</title>
+	<link type="text/css" rel="stylesheet" href="/static/css/templatemo_style.css" />
+	</head>
+
+                <body background="/static/image/eg_background.jpg">
+		<div id="templatemo_container">
+			<div id="templatemo_menu">
+    			<ul>
+                		<li><a href="/index/" >首页</a>
+                		<li><a href="/search/" >搜索图书</a>
+                		<li><a href="/book/">添加图书</a>
+                		<li><a href="/author/">添加作者</a>
+			</ul>
+			</div>
+		</div>
+		<div id="box" align="center">
+    			<img src="/static/image/templatemo_header_bg_blank.jpg"/>
+		</div>
+     	<h1 align="center">修改图书</h1>
+       	{% if newbook.errors %}
+	<p style="color: red;">
+	请修改如下错误{{ newbook.errors }}。
+	</p>
+	{% endif %}
+	<div align="center">
+       	<form method="post" action="" align="center">
+  
+          	<table align="center">
+
+			{{ newbook.ISBN.errors }}
+			<label for="id_ISBN">书号:</label>
+             		{{ newbook.ISBN }}
+			</br></br>
+			{{ newbook.Title.errors }}
+			<label for="id_Title">书名:</label>
+             		{{ newbook.Title }}
+			</br></br>
+			{{ newbook.Publisher.errors }}
+			<label for="id_Publisher">出版社:</label>
+             		{{ newbook.Publisher }}
+
+			</br></br>
+			<script language="javascript" type="text/javascript" src="/static/js/My97DatePicker/WdatePicker.js"></script>
+
+       			{{ newbook.PublishDate.errors }}
+			<label for="id_PublishDate">出版日期:</label>
+             		<input class="Wdate" type="text" name="PublishDate" id="id_PublishDate" onClick="WdatePicker()">
+
+			</br></br>
+			{{ newbook.Price.errors }}
+			<label for="id_Price">价格:</label>
+             		{{ newbook.Price }}
+
+			</br></br>
+			{{ newbook.Authors.errors }}
+			<label for="id_Authors">作者:</label>
+             		{{ newbook.Authors }}
+
+
+           	</table>
+
+       	<input type="submit" value="保存"/>
+  
+          	<div>{{ msg }}</div>
+ 
+       	</form>
+ 
+	</div>
+  	 <a href="http://127.0.0.1:8000/author/" style="text-decoration:none" align="center">没有作者？点击这里添加作者！</a>
+   	</body>
+
+</html>
+
